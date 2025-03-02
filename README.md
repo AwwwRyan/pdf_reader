@@ -28,7 +28,7 @@ https://github.com/AwwwRyan/pdf_reader/releases/tag/v1.0
 
 <img src="https://github.com/user-attachments/assets/f71a46ee-6752-4749-800a-dbc069780a1a" width="300">
 
-![Image](https://github.com/user-attachments/assets/263289f0-b6c4-4140-a9e3-751d01b8b30a)
+<img src="https://github.com/user-attachments/assets/263289f0-b6c4-4140-a9e3-751d01b8b30a" width="300">
 
 
 
