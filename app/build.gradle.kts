@@ -37,6 +37,9 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.activity:activity:1.8.2")
     implementation("androidx.fragment:fragment:1.6.2")
+
+    implementation("io.github.afreakyelf:Pdf-Viewer:2.1.1")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

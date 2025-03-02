@@ -1,19 +1,34 @@
 package com.example.reader_pdf;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
+
+import com.rajat.pdfviewer.*;
+
+import java.io.FileNotFoundException;
+
+
 public class PdfDetailActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf_detail);
+        setContentView(com.rajat.pdfviewer.R.layout.activity_pdf_viewer);
 
-        TextView pdfTitle = findViewById(R.id.pdfTitle);
-        String pdfName = getIntent().getStringExtra("pdf_name");
+        PdfRendererView pdfView = findViewById(com.rajat.pdfviewer.R.id.pdfView);
+        String pdfUriString = getIntent().getStringExtra("pdfUri");
 
-        pdfTitle.setText(pdfName);
+        if (pdfUriString != null) {
+            Uri pdfUri = Uri.parse(pdfUriString);
+            try {
+                pdfView.initWithUri(pdfUri);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
     }
 }

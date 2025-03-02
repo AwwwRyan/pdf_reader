@@ -9,27 +9,16 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
-    private List<String> pdfList = new ArrayList<>();
-    private PdfAdapter pdfAdapter;
 
-    // File picker launcher
-    private final ActivityResultLauncher<String> filePickerLauncher =
+    private final ActivityResultLauncher<String> filePicker =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
                 if (uri != null) {
-                    String fileName = getFileName(uri);
-                    pdfList.add(fileName);
-                    pdfAdapter.notifyDataSetChanged();
+                    openPdfViewer(uri);
                 } else {
-                    Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "No PDF selected", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -38,22 +27,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        FloatingActionButton fab = findViewById(R.id.fab);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        pdfAdapter = new PdfAdapter(pdfList, this);
-        recyclerView.setAdapter(pdfAdapter);
-
-        fab.setOnClickListener(v -> filePickerLauncher.launch("application/pdf"));
+        findViewById(R.id.fab).setOnClickListener(v -> filePicker.launch("application/pdf"));
     }
 
-    // Extract file name from URI
-    private String getFileName(Uri uri) {
-        String path = uri.getLastPathSegment();
-        if (path != null) {
-            return path.substring(path.lastIndexOf("/") + 1);
-        }
-        return "Unknown File";
+    private void openPdfViewer(Uri uri) {
+        Intent intent = new Intent(this, PdfDetailActivity.class);
+        intent.putExtra("pdfUri", uri.toString());
+        startActivity(intent);
     }
 }
