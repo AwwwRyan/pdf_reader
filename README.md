@@ -24,7 +24,7 @@ https://github.com/AwwwRyan/pdf_reader/releases/tag/v1.0
 
 ## ScreenShots
 
-![Image](https://github.com/user-attachments/assets/e7db117e-33c4-4376-bf84-fdf4842b4051)
+<img src="[https://raw.githubusercontent.com/user/repository/main/images/example.png](https://github.com/user-attachments/assets/e7db117e-33c4-4376-bf84-fdf4842b4051)" width="300">
 
 ![Image](https://github.com/user-attachments/assets/f71a46ee-6752-4749-800a-dbc069780a1a)
 
