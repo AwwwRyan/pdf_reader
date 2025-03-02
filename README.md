@@ -22,4 +22,10 @@ A simple PDF reader Android application built using Java.
 ## APK Download
 https://github.com/AwwwRyan/pdf_reader/releases/tag/v1.0
 
+## ScreenShots
+![Image](https://github.com/user-attachments/assets/263289f0-b6c4-4140-a9e3-751d01b8b30a)
+
+![Image](https://github.com/user-attachments/assets/6a2a9e65-c666-41c5-bc18-5400aa983265)
+
+![Image](https://github.com/user-attachments/assets/e7db117e-33c4-4376-bf84-fdf4842b4051)
 
