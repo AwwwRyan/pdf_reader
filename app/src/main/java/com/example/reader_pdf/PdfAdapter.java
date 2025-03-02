@@ -1,4 +1,5 @@
 package com.example.reader_pdf;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
-    private final List<String> pdfList;
+    private final List<PdfDocument> pdfList;
     private final Context context;
 
-    public PdfAdapter(List<String> pdfList, Context context) {
+    public PdfAdapter(List<PdfDocument> pdfList, Context context) {
         this.pdfList = pdfList;
         this.context = context;
     }
@@ -29,12 +30,12 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String pdfName = pdfList.get(position);
-        holder.pdfName.setText(pdfName);
+        PdfDocument pdf = pdfList.get(position);
+        holder.pdfName.setText(pdf.getName());
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, PdfDetailActivity.class);
-            intent.putExtra("pdf_name", pdfName);
+            intent.putExtra("pdfUri", pdf.getUri());
             context.startActivity(intent);
         });
     }
@@ -51,5 +52,7 @@ public class PdfAdapter extends RecyclerView.Adapter<PdfAdapter.ViewHolder> {
             super(itemView);
             pdfName = itemView.findViewById(R.id.pdfName);
         }
+
     }
+
 }
