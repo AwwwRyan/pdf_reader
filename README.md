@@ -2,6 +2,10 @@
 
 A simple PDF reader Android application built using Java.
 
+## drawback
+- horizontal swipe(left-right) is not supported by the library used
+- the library used to integrate horizontal swipe is not working. 
+
 ## Features
 - Open and view PDF files
 - Displays a list of added PDFs
